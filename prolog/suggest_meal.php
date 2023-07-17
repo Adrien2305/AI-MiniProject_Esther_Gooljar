@@ -83,7 +83,7 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $preference = $_POST['preference'];
-        $command = 'swipl -s C:/xampp/htdocs/prolog/diet_meal_suggestion.pl -g "findall(Meal, suggest_meal(\'' . $preference . '\', Meal), Meals), atomic_list_concat(Meals, \',\', Output), writeln(Output), halt."';
+        $command = 'swipl -s diet_meal_suggestion.pl -g "findall(Meal, suggest_meal(\'' . $preference . '\', Meal), Meals), atomic_list_concat(Meals, \',\', Output), writeln(Output), halt."';
         $output = shell_exec($command);
         
         $meals = explode(",", trim($output));
